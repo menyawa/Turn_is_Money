@@ -9,20 +9,26 @@ ADebugController::ADebugController()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	UKismetSystemLibrary::PrintString(this, "Constructor");
+	PrintLog("Constructor");
 }
 
 // Called when the game starts or when spawned
 void ADebugController::BeginPlay()
 {
 	Super::BeginPlay();
-	UKismetSystemLibrary::PrintString(this, "BeginPlay");
+	PrintLog("BeginPlay");
 }
 
 // Called every frame
 void ADebugController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
 
+//! @breif ログ出力を行う
+//! @param[in] text 出力するテキスト
+void ADebugController::PrintLog(const FString text) const noexcept
+{
+	UKismetSystemLibrary::PrintString(this, text);
 }
 

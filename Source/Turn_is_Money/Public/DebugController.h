@@ -7,6 +7,7 @@
 #include "DebugController.generated.h"
 
 UCLASS()
+//! @breif デバッグ関係のクラス
 class TURN_IS_MONEY_API ADebugController : public AActor
 {
 	GENERATED_BODY()
@@ -23,4 +24,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//! @breif ログ出力を行う
+	//! @param[in] text 出力するテキスト
+	void PrintLog(const FString text) const noexcept;
 };
