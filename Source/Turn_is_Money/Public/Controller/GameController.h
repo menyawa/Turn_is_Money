@@ -2,19 +2,24 @@
 
 #pragma once
 
+#include "DebugController.h"
+
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "DebugController.generated.h"
+#include "GameController.generated.h"
 
 UCLASS()
-//! @breif デバッグ関係のクラス
-class TURN_IS_MONEY_API ADebugController : public AActor
+class TURN_IS_MONEY_API AGameController : public AActor
 {
 	GENERATED_BODY()
 	
+private:
+	UPROPERTY(VisibleAnywhere)
+	UDebugController* _myDebugController; //! デバッグのコントローラクラス
+
 public:	
 	// Sets default values for this actor's properties
-	ADebugController();
+	AGameController();
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,7 +29,4 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//! @breif ログ出力を行う
-	//! @param[in] text 出力するテキスト
-	void PrintLog(const FString text) const noexcept;
 };
